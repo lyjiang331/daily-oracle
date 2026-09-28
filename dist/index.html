@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A playful crystal-ball oracle that reveals a number and a message for your day."
+    />
+    <meta name="theme-color" content="#120b0c" />
+    <title>Today’s Number Oracle</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120b0c'/%3E%3Ccircle cx='32' cy='28' r='18' fill='%23b9292f' stroke='%23e8bd72' stroke-width='3'/%3E%3Cpath d='M19 52h26' stroke='%23e8bd72' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-glow" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <p class="brand"><span aria-hidden="true">☉</span> TODAY’S NUMBER ORACLE</p>
+      <p class="date" id="today-date"></p>
+    </header>
+
+    <main>
+      <section class="oracle" aria-labelledby="page-title">
+        <div class="introduction">
+          <p class="eyebrow">A small reading for right now</p>
+          <h1 id="page-title">Let chance choose what you need today.</h1>
+          <p class="instructions" id="instructions">
+            Touch the crystal ball. A number and a message will find you.
+          </p>
+        </div>
+
+        <div class="oracle-stage">
+          <span class="star star-one" aria-hidden="true">✦</span>
+          <span class="star star-two" aria-hidden="true">·</span>
+          <span class="star star-three" aria-hidden="true">✧</span>
+
+          <button
+            class="crystal-ball"
+            id="crystal-ball"
+            type="button"
+            aria-describedby="instructions result-message"
+          >
+            <span class="orb-shine" aria-hidden="true"></span>
+            <span class="orb-symbol" id="orb-symbol" aria-hidden="true">启</span>
+            <span class="number" id="fortune-number" aria-live="polite"></span>
+            <span class="button-prompt" id="button-prompt">Reveal my number</span>
+          </button>
+          <div class="ball-stand" aria-hidden="true">
+            <span></span>
+          </div>
+        </div>
+
+        <section class="result-card" id="result-card" aria-live="polite" aria-atomic="true">
+          <p class="result-type" id="result-type">Your message will appear here</p>
+          <p class="result-message" id="result-message">
+            Some answers arrive only after you ask.
+          </p>
+        </section>
+
+        <p class="disclaimer">For reflection and fun—not a prediction or advice.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>今日 · today</span>
+      <span>偶然 · chance</span>
+      <span>心境 · state of mind</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
