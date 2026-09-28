@@ -43,6 +43,7 @@ todayDate.textContent = new Intl.DateTimeFormat("en", {
 }).format(new Date());
 
 let previousNumber = null;
+let revealTimer = null;
 
 function pickRandomItem(items) {
   const index = Math.floor(Math.random() * items.length);
@@ -83,6 +84,8 @@ function getFortune(number) {
 }
 
 function revealFortune() {
+  if (revealTimer !== null) return;
+
   const number = pickNumber();
   const fortune = getFortune(number);
 
@@ -92,13 +95,24 @@ function revealFortune() {
   // Restart the animation even when the button is clicked several times.
   void crystalBall.offsetWidth;
 
-  fortuneNumber.textContent = number;
-  resultType.textContent = fortune.label;
-  resultMessage.textContent = fortune.message;
-  buttonPrompt.textContent = "Ask again";
+  fortuneNumber.textContent = "";
+  buttonPrompt.textContent = "Reading the light…";
+  crystalBall.setAttribute("aria-busy", "true");
+  crystalBall.classList.add("is-revealing");
 
-  crystalBall.classList.add("is-revealing", "has-result");
-  resultCard.classList.add("has-result");
+  const revealDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 40 : 680;
+
+  revealTimer = window.setTimeout(() => {
+    fortuneNumber.textContent = number;
+    resultType.textContent = fortune.label;
+    resultMessage.textContent = fortune.message;
+    buttonPrompt.textContent = "Ask again";
+    crystalBall.classList.remove("is-revealing");
+    crystalBall.classList.add("has-result");
+    crystalBall.setAttribute("aria-busy", "false");
+    resultCard.classList.add("has-result");
+    revealTimer = null;
+  }, revealDelay);
 }
 
 crystalBall.addEventListener("click", revealFortune);
