@@ -1,10 +1,12 @@
-# Today’s Number Oracle
+# Number for the Day
 
 ## Original idea
 
 When someone clicks, the experience should be unpredictable and meaningful.
 
 This is a small browser experience inspired by the feeling of checking a daily fortune. The user clicks a crystal ball and receives a random number from 1 to 100. Numbers below 50 reveal an encouraging sentence, numbers above 50 reveal a joke or fun fact, and exactly 50 reveals a special message about balance.
+
+The visual design uses a purple crystal ball resting over a soft velvet cushion in a magical room. A moonlit window makes it feel like the reading happens at night.
 
 ## How to open the project
 

@@ -1,14 +1,14 @@
 :root {
   color-scheme: dark;
-  --ink: #120b0c;
-  --ink-soft: #211416;
-  --paper: #f5e8cc;
-  --paper-muted: #cdbf9f;
-  --gold: #e8bd72;
-  --gold-dark: #966b36;
-  --cinnabar: #b9292f;
-  --cinnabar-bright: #e24a45;
-  --line: rgba(232, 189, 114, 0.28);
+  --ink: #0d0818;
+  --ink-soft: #1a1028;
+  --paper: #f7efff;
+  --paper-muted: #d3c4e6;
+  --gold: #e8c990;
+  --gold-dark: #9d7441;
+  --cinnabar: #8e4fd1;
+  --cinnabar-bright: #d8a6ff;
+  --line: rgba(232, 201, 144, 0.3);
   --shadow: rgba(0, 0, 0, 0.48);
   font-family: Georgia, "Noto Serif CJK SC", "Songti SC", "STSong", serif;
 }
@@ -28,11 +28,9 @@ body {
   overflow-x: hidden;
   color: var(--paper);
   background:
-    radial-gradient(circle at 50% 45%, rgba(185, 41, 47, 0.16), transparent 30rem),
-    linear-gradient(rgba(232, 189, 114, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 189, 114, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 4, 16, 0.7) 0%, rgba(10, 5, 22, 0.42) 45%, rgba(7, 3, 14, 0.12) 100%),
+    url("assets/magic-room-night.png") center / cover fixed,
     var(--ink);
-  background-size: auto, 36px 36px, 36px 36px, auto;
 }
 
 button {
@@ -45,8 +43,8 @@ button {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 8% 18%, rgba(232, 189, 114, 0.07), transparent 18rem),
-    radial-gradient(circle at 92% 82%, rgba(185, 41, 47, 0.1), transparent 22rem);
+    radial-gradient(circle at 13% 36%, rgba(117, 72, 182, 0.12), transparent 22rem),
+    radial-gradient(circle at 75% 48%, rgba(195, 133, 255, 0.12), transparent 22rem);
 }
 
 .site-header,
@@ -60,7 +58,8 @@ footer {
 
 .site-header {
   min-height: 4.5rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(232, 201, 144, 0.22);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
 }
 
 .brand,
@@ -119,9 +118,15 @@ main {
   align-self: end;
 }
 
+.introduction,
+.result-card,
+.disclaimer {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
+}
+
 .eyebrow {
   margin: 0 0 1rem;
-  color: var(--cinnabar-bright);
+  color: #ddb5ff;
   font-size: 0.74rem;
   font-weight: 800;
 }
@@ -163,29 +168,29 @@ h1 {
   overflow: hidden;
   color: var(--paper);
   background:
-    radial-gradient(circle at 38% 29%, rgba(255, 255, 255, 0.38), transparent 7%),
-    radial-gradient(circle at 50% 54%, rgba(232, 189, 114, 0.2), transparent 27%),
-    radial-gradient(circle at 42% 38%, #d54442 0%, #8f2029 43%, #3c1018 78%, #180c10 100%);
-  border: 2px solid rgba(232, 189, 114, 0.72);
+    radial-gradient(circle at 36% 27%, rgba(255, 255, 255, 0.68), transparent 6%),
+    radial-gradient(circle at 47% 42%, rgba(224, 184, 255, 0.34), transparent 24%),
+    radial-gradient(circle at 44% 39%, #bb7bf0 0%, #7132a7 42%, #321557 76%, #120a25 100%);
+  border: 2px solid rgba(232, 201, 255, 0.8);
   border-radius: 50%;
   cursor: pointer;
   box-shadow:
-    inset -2rem -2.5rem 4rem rgba(5, 0, 2, 0.6),
-    inset 1.2rem 1.2rem 2.5rem rgba(255, 132, 111, 0.12),
-    0 0 0 0.65rem rgba(232, 189, 114, 0.05),
+    inset -2rem -2.5rem 4rem rgba(8, 1, 20, 0.66),
+    inset 1.2rem 1.2rem 2.5rem rgba(236, 204, 255, 0.18),
+    0 0 0 0.65rem rgba(214, 168, 255, 0.08),
     0 2.5rem 5rem var(--shadow),
-    0 0 4rem rgba(185, 41, 47, 0.18);
+    0 0 4.5rem rgba(162, 88, 224, 0.36);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .crystal-ball:hover {
   transform: translateY(-0.35rem) scale(1.01);
   box-shadow:
-    inset -2rem -2.5rem 4rem rgba(5, 0, 2, 0.6),
-    inset 1.2rem 1.2rem 2.5rem rgba(255, 132, 111, 0.12),
-    0 0 0 0.75rem rgba(232, 189, 114, 0.08),
+    inset -2rem -2.5rem 4rem rgba(8, 1, 20, 0.66),
+    inset 1.2rem 1.2rem 2.5rem rgba(236, 204, 255, 0.2),
+    0 0 0 0.75rem rgba(218, 175, 255, 0.12),
     0 3rem 5.5rem var(--shadow),
-    0 0 5rem rgba(185, 41, 47, 0.26);
+    0 0 6rem rgba(178, 105, 240, 0.5);
 }
 
 .crystal-ball:focus-visible {
@@ -254,25 +259,6 @@ h1 {
   opacity: 0.72;
 }
 
-.ball-stand {
-  position: absolute;
-  z-index: 1;
-  bottom: 9%;
-  width: min(58%, 17rem);
-  height: 5.5rem;
-  background: linear-gradient(90deg, #6e4726, var(--gold), #74502b);
-  clip-path: polygon(16% 0, 84% 0, 100% 100%, 0 100%);
-  border-radius: 0.4rem 0.4rem 1.2rem 1.2rem;
-  filter: drop-shadow(0 1.4rem 1.4rem rgba(0, 0, 0, 0.45));
-}
-
-.ball-stand span {
-  position: absolute;
-  inset: 0.55rem 0.75rem;
-  border: 1px solid rgba(18, 11, 12, 0.5);
-  border-radius: 0.2rem 0.2rem 0.8rem 0.8rem;
-}
-
 .star {
   position: absolute;
   color: var(--gold);
@@ -306,8 +292,10 @@ h1 {
   margin-top: 2.2rem;
   padding: 1.25rem 1.4rem 1.35rem;
   align-self: start;
+  background: linear-gradient(90deg, rgba(17, 8, 30, 0.72), rgba(17, 8, 30, 0.16));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
 }
 
 .result-card.has-result {
@@ -404,8 +392,9 @@ footer {
     min-height: 25rem;
   }
 
-  .ball-stand {
-    bottom: 5%;
+  body {
+    background-position: 66% center;
+    background-attachment: scroll;
   }
 
   .result-card {
